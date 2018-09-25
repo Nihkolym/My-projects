@@ -1,5 +1,24 @@
-module.exports = class User{
-    constructor(model){
-        Object.assign(this, model);
+const Sequalize = require('sequelize');
+const db = require('../db/db')
+
+const User = db.define('user', {
+    id: {
+        primaryKey: true,
+        autoIncrement: true,
+        type: Sequalize.INTEGER
+    },
+    firstname: {
+        type: Sequalize.STRING
+    },
+    lastname: {
+        type: Sequalize.STRING
+    },
+    address: {
+        type: Sequalize.STRING
+    },
+    phone: {
+        type: Sequalize.STRING
     }
-}
+});
+
+module.exports = User;

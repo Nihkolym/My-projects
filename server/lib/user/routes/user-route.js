@@ -1,13 +1,10 @@
 const express = require('express');
-const createService = require("../services/user-services");
+const userController = require("../controllers/user-controller");
+
 const router = express.Router();
 
-const userService = new createService();
 
-router.get('/', function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.send(userService.getAllUsers());
-    console.log(userService.getAllUsers());
-});
+
+router.get('/', userController.getAllUsers);
 
 module.exports = router;
